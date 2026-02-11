@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شطرنج أونلاين - Chess Online</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Lobby View -->
+    <div id="lobbyView" class="app-container">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">♔</span>
+                <h1>شطرنج أونلاين</h1>
+            </div>
+            <div class="header-controls">
+                <div class="user-info" id="userInfo">
+                    <span class="username" id="displayUsername"></span>
+                    <span class="elo-badge" id="eloBadge">1200</span>
+                    <button class="btn btn-secondary" id="logoutBtn">تسجيل الخروج</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="lobby-main">
+            <div class="lobby-card">
+                <h2>ابحث عن خصم</h2>
+                <p>انضم إلى قائمة الانتظار للعثور على خصم</p>
+                <button class="btn btn-primary btn-large" id="findGameBtn">
+                    <span class="btn-icon">⚔️</span>
+                    ابحث عن مباراة
+                </button>
+                <div id="queueStatus" class="queue-status hidden">
+                    <div class="spinner"></div>
+                    <span>جاري البحث عن خصم...</span>
+                    <button class="btn btn-secondary btn-sm" id="cancelQueueBtn">إلغاء</button>
+                </div>
+            </div>
+
+            <div class="online-stats">
+                <div class="stat-item">
+                    <span class="stat-value" id="onlineCount">0</span>
+                    <span class="stat-label">لاعبون أونلاين</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Game View -->
+    <div id="gameView" class="app-container hidden">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">♔</span>
+                <h1>شطرنج أونلاين</h1>
+            </div>
+            <div class="header-controls">
+                <div class="players-display">
+                    <div class="player-info white-player">
+                        <span class="piece-icon">♔</span>
+                        <span id="whitePlayerName">الأبيض</span>
+                    </div>
+                    <span class="vs">VS</span>
+                    <div class="player-info black-player">
+                        <span class="piece-icon">♚</span>
+                        <span id="blackPlayerName">الأسود</span>
+                    </div>
+                </div>
+                <span class="turn-indicator" id="turnIndicator">دور الأبيض</span>
+                <button class="btn btn-danger" id="resignBtn">استسلام</button>
+            </div>
+        </header>
+
+        <main class="game-area">
+            <div class="captured-pieces captured-black">
+                <h3>قطع مأخوذة</h3>
+                <div class="captured-list" id="capturedBlack"></div>
+            </div>
+
+            <div class="board-container">
+                <div class="board-coords board-files">
+                    <span>a</span><span>b</span><span>c</span><span>d</span><span>e</span><span>f</span><span>g</span><span>h</span>
+                </div>
+                <div class="board-wrapper">
+                    <div class="board-ranks">
+                        <span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span>
+                    </div>
+                    <div class="chess-board" id="chessBoard"></div>
+                </div>
+            </div>
+
+            <div class="captured-pieces captured-white">
+                <h3>قطع مأخوذة</h3>
+                <div class="captured-list" id="capturedWhite"></div>
+            </div>
+        </main>
+
+        <aside class="game-panel">
+            <div class="panel-section">
+                <h3>معلومات اللعبة</h3>
+                <div class="game-status" id="gameStatus">جاري اللعب</div>
+                <div class="move-history" id="moveHistory">
+                    <h4>سجل النقلات</h4>
+                    <div class="moves-list" id="movesList"></div>
+                </div>
+                <button class="btn btn-primary btn-block" id="backToLobbyBtn">العودة للوبي</button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div id="gameOverModal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="gameOverTitle">انتهت المباراة</h2>
+            <p id="gameOverMessage"></p>
+            <button class="btn btn-primary" id="playAgainBtn">مباراة جديدة</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="chess.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

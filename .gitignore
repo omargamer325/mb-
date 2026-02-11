@@ -1,0 +1,4 @@
+node_modules/
+chess-data.json
+.env
+*.log

@@ -1,0 +1,11 @@
+# Render.com - نشر مجاني
+# انشئ حساب على https://render.com ثم اربط الريبو
+services:
+  - type: web
+    name: chess-online
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20

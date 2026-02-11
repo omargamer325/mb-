@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - شطرنج أونلاين</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-header">
+            <span class="logo-icon">♔</span>
+            <h1>شطرنج أونلاين</h1>
+            <p>العب مع لاعبين من جميع أنحاء العالم</p>
+        </div>
+
+        <div class="login-tabs">
+            <button class="tab-btn active" data-tab="login">تسجيل الدخول</button>
+            <button class="tab-btn" data-tab="register">إنشاء حساب</button>
+        </div>
+
+        <div id="loginForm" class="form-container active">
+            <form class="auth-form" id="loginFormEl">
+                <div class="form-group">
+                    <label>اسم المستخدم</label>
+                    <input type="text" id="loginUsername" required minlength="3" placeholder="أدخل اسم المستخدم">
+                </div>
+                <div class="form-group">
+                    <label>كلمة المرور</label>
+                    <input type="password" id="loginPassword" required minlength="6" placeholder="أدخل كلمة المرور">
+                </div>
+                <div id="loginError" class="error-msg"></div>
+                <button type="submit" class="btn btn-primary btn-block">تسجيل الدخول</button>
+            </form>
+        </div>
+
+        <div id="registerForm" class="form-container">
+            <form class="auth-form" id="registerFormEl">
+                <div class="form-group">
+                    <label>اسم المستخدم</label>
+                    <input type="text" id="registerUsername" required minlength="3" placeholder="3 أحرف على الأقل">
+                </div>
+                <div class="form-group">
+                    <label>كلمة المرور</label>
+                    <input type="password" id="registerPassword" required minlength="6" placeholder="6 أحرف على الأقل">
+                </div>
+                <div class="form-group">
+                    <label>تأكيد كلمة المرور</label>
+                    <input type="password" id="registerPasswordConfirm" required placeholder="أعد إدخال كلمة المرور">
+                </div>
+                <div id="registerError" class="error-msg"></div>
+                <button type="submit" class="btn btn-primary btn-block">إنشاء حساب</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

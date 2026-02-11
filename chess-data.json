@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "omar",
+      "password_hash": "$2a$10$RmzNFBvkW8IaElPRMP3sWey4SFTpjXHHUNa8Dtd2VxoYx1oEydQf.",
+      "elo": 1200,
+      "created_at": "2026-02-07T22:25:55.988Z"
+    }
+  ],
+  "games": [],
+  "nextUserId": 2,
+  "nextGameId": 1
+}
